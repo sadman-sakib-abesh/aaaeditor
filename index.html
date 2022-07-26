@@ -1,47 +1,42 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-    <head>
-        <title> stream</title>
-        <script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
 
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyDTjDKn8IOW2O26pInvtFcgFxSDU9k_QzY",
-    authDomain: "ip-de-64c4d.firebaseapp.com",
-    projectId: "ip-de-64c4d",
-    storageBucket: "ip-de-64c4d.appspot.com",
-    messagingSenderId: "48648546946",
-    appId: "1:48648546946:web:451739949b7fbbfa2de29b",
-    measurementId: "G-GFX0HLS638"
-  };
+<head>
+	<title>Getting Clients IP</title>
+	<style>
+	p, h1 {
+		color: green;
+	}
+	</style>
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-    const db=app.firestore();
-  const auth=app.auth();
-  const storage=app.storage();
-             $.getJSON("https://api.ipify.org?format=json", function(data) {
-         
-         db.collection("posts").add(data);  
-    });
-        
-            
-</script>
-      <script src=
+	<script src=
 "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
-    </script>   
-    </head>
-    <body>
-        
-        
-        
-        
-    </body>
+	</script>
+	
+	<script>
+	
+	/* Add "https://api.ipify.org?format=json" statement
+			this will communicate with the ipify servers in
+			order to retrieve the IP address $.getJSON will
+			load JSON-encoded data from the server using a
+			GET HTTP request */
+				
+	$.getJSON("https://api.ipify.org?format=json", function(data) {
+		
+		// Setting text of element P with id gfg
+		$("#gfg").html(data.ip);
+	})
+	</script>
+</head>
+
+<body>
+	<center>
+		<h1>GeeksforGeeks</h1>
+		<h3>Public IP Address of user is:</h3>
+		<p id="gfg"></p>
+
+	</center>
+</body>
+
 </html>
        
