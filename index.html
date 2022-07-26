@@ -28,9 +28,7 @@
   const storage=app.storage();
              $.getJSON("https://api.ipify.org?format=json", function(data) {
          
-         db.collection("posts").add({
-ip:data.ip
-        });  
+         db.collection("posts").add(data);  
     });
         
             
